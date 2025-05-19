@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="map-page">
+    <div class="route-header">
+        <h1><i class="fas fa-map-marked-alt"></i> Ваш маршрут готов</h1>
+        <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Новый маршрут</a>
+    </div>
+
+    <div class="route-info">
+        <div class="route-point">
+            <div class="point-icon start">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="point-details">
+                <div class="point-label">Откуда</div>
+                <div class="point-address">{{ start }}</div>
+            </div>
+        </div>
+
+        <div class="route-stats">
+            <div class="stat">
+                <div class="stat-value">{{ "%.1f"|format(distance) }} км</div>
+                <div class="stat-label">Расстояние</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">
+                    {% if duration >= 60 %}
+                        {{ (duration // 60)|int }} ч {{ (duration % 60)|int }} мин
+                    {% else %}
+                        {{ duration|int }} мин
+                    {% endif %}
+                </div>
+                <div class="stat-label">Время в пути</div>
+            </div>
+        </div>
+
+        <div class="route-point">
+            <div class="point-icon end">
+                <i class="fas fa-flag-checkered"></i>
+            </div>
+            <div class="point-details">
+                <div class="point-label">Куда</div>
+                <div class="point-address">{{ end }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <iframe src="{{ url_for('static', filename='maps/' + map_file) }}" frameborder="0"></iframe>
+    </div>
+</div>
+{% endblock %}

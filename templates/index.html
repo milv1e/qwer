@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="route-form-container">
+    <form id="routeForm" method="POST" action="/map" class="route-form">
+        {% if error %}
+        <div class="error-message">
+            <i class="fas fa-exclamation-circle"></i> {{ error }}
+        </div>
+        {% endif %}
+
+        <div class="input-group">
+            <label for="start"><i class="fas fa-map-marker-alt"></i> Откуда:</label>
+            <input type="text" id="start" name="start" required 
+                   placeholder="Москва, Тверская ул., 1" 
+                   value="{{ start if start }}">
+        </div>
+
+        <div class="input-group">
+            <label for="end"><i class="fas fa-flag-checkered"></i> Куда:</label>
+            <input type="text" id="end" name="end" required 
+                   placeholder="Санкт-Петербург, Невский пр., 28"
+                   value="{{ end if end }}">
+        </div>
+
+        <button type="submit" class="submit-btn">
+            <i class="fas fa-route"></i> ПОСТРОИТЬ МАРШРУТ
+        </button>
+    </form>
+
+    <div class="info-box">
+        <p><i class="fas fa-info-circle"></i> Введите города и адреса для построения оптимального автомобильного маршрута</p>
+    </div>
+</div>
+{% endblock %}

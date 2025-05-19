@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-content">
+    <h1><i class="fas fa-envelope"></i> Контакты</h1>
+    <div class="content-box">
+        <h2><i class="fas fa-headset"></i> Свяжитесь с нами</h2>
+
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@routeapp.com">support@routeapp.com</a></p>
+            <p><i class="fas fa-phone"></i> Телефон: +7 (123) 456-78-90</p>
+            <p><i class="fas fa-map-marker-alt"></i> Адрес: Москва, ул. Примерная, 123</p>
+        </div>
+
+        <h2><i class="fas fa-paper-plane"></i> Форма обратной связи</h2>
+
+        <form class="contact-form">
+            <div class="input-group">
+                <label for="name"><i class="fas fa-user"></i> Ваше имя:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="message"><i class="fas fa-comment"></i> Сообщение:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> ОТПРАВИТЬ
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
